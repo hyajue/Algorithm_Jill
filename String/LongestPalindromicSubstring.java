@@ -57,8 +57,34 @@ public class LongestPalindromicSubstring {
         return s.substring(left + 1, right);
     }
 }
-
-
+/*复杂度
+时间O(n^2) 空间(n^2)
+思路：dp
+建立boolean二维数组dp[i][j]，存放字符串s从第i到第j位是否为回文的布尔值；
+然后从字符串s的最后一个字符开始，向前进行分析。
+比如说，从后向前，分析到第i位，开始判断dp[i][j]，若为true，说明从第j位向前到第i位的子串是一个回文串
+*/
+public class LongestPalindromicSubstring {
+	public String longestPalindrome(String s) {
+        if(s == null || s.length() == 0) return "";
+        int len = s.length();
+        boolean[][] dp = new boolean[len][len];
+        int maxStart = 0;
+        int maxLen = 0;
+        
+        for(int i = len - 1; i >= 0; i--){
+            for(int j = i; j < len; j++){
+                if(s.charAt(i) == s.charAt(j))
+                    dp[i][j] = j - i > 1 ? dp[i+1][j-1] : true;
+                if(dp[i][j] && j - i + 1 > maxLen){
+                    maxStart = i;
+                    maxLen = j - i + 1;
+                }
+            }
+        }
+        return s.substring(maxStart, maxStart + maxLen);
+    }
+}
 /*
 solution 2
 复杂度
