@@ -66,3 +66,39 @@ public class FindAllAnagramsInAString {
         return res;
     }
 }
+
+public class Solution {  
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<Integer>();
+        if(s.length() < p.length() || s == null) return res;
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        for(char c : p.toCharArray())
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        int count = map.size();
+        int left = 0, right = 0;
+        while(right < s.length()){
+            char rC = s.charAt(right);
+            if(map.containsKey(rC)){
+                map.put(rC, map.get(rC) - 1);
+                if(map.get(rC) == 0)
+                    count--;
+            }
+            right++;
+            
+            while(count == 0){
+                char lC = s.charAt(left);
+                if(right - left == p.length()) //!!!!
+                    res.add(left);
+                if(map.containsKey(lC)){
+                    map.put(lC, map.get(lC) + 1);
+                    if(map.get(lC) > 0)
+                        count++;
+                }
+                
+                left++;
+            }
+        }
+        return res;    
+    }
+}
+
