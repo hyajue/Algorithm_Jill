@@ -60,15 +60,19 @@ public class BinaryTreeUpsideDown {
 	  public TreeNode upsideDownBinaryTree(TreeNode root) {
 		  if(root == null) return root;
 		  TreeNode cur = root;
-		  TreeNode parent = root;
+		  TreeNode prev = null;
+		  TreeNode next = null;
 		  TreeNode right = null;
+		  
 		  while(cur != null) {
-			  TreeNode left = cur.left;
+			  next = cur.left;
+			  
 			  cur.left = right;
 			  right = cur.right;
-			  cur.right = parent;
-			  cur = left;
+			  prev = cur;
+			  cur = next;
 		  }
+		  return prev;
 	  }
 }
 
