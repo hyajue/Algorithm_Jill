@@ -10,6 +10,11 @@ Your algorithm should run in O(n2) complexity.
 
 Follow up: Could you improve it to O(n log n) time complexity?
  */
+
+/*
+Time: O(nlogn)
+思路：binary search+dp
+*/
 /*
  Time: O(n^2) Space: O(n)
  思路：dp
