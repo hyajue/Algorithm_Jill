@@ -47,11 +47,14 @@ public class LowestCommonAncestorOfABinaryTree {
 /*
 Method 2: iterative
 用Deque和hashmap
+相当于level order
 hashmap用来记录node和其parent node的对应
 deque用来记录一个遍历的顺序.当p和q都遍历到了，则停止遍历。
 此时用一个hashset来记录p以及其parent。最后遍历q和它的parent，遍历到当前node包含在hashset里为止。
 这就是q和p的LCA
 */
+
+
 /**
 java.util.Deque接口是java.util.Queue接口的子接口。
 它代表的队列包含从队列两端添加和删除元素。
