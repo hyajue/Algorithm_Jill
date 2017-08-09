@@ -23,9 +23,10 @@ public class OneEditDistance {
 	public boolean isOneEditDistance(String s, String t) {
 		if(s == null || t == null) return false;
 		if(s.length() > t.length()){ //保证s永远小于等于t
-			String temp = s;
-			s = t;
-			t = s;
+// 			String temp = s;
+// 			s = t;
+// 			t = s;
+			return isOneEditDistance(t, s);
 		}
 		if(t.length() - s.length() > 1) return false;
 		String subS = "", subT = "";
@@ -43,6 +44,6 @@ public class OneEditDistance {
 			}
 			return subS.equals(subT);
 		}
-		return false; //两个string完全相等
+		return false; //两个string完全相等!!!!!
 	}
 }
