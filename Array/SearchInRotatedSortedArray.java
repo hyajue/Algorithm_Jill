@@ -28,7 +28,7 @@ public class SearchInRotatedSortedArray {
         if(nums == null || nums.length == 0) return -1;
         int left = 0, right = nums.length - 1;
         while(left <= right){
-            int mid = (right + left) / 2;
+            int mid = (right - left) / 2 + left;
             if(nums[mid] == target) return mid;
             if(nums[mid] < nums[right]){
                 //Right side is ordered
