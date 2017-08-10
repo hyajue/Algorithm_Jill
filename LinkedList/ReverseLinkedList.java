@@ -38,16 +38,15 @@ Assume that we have linked list 1 → 2 → 3 → Ø,
 we would like to change it to Ø ← 1 ← 2 ← 3
 */ 
 public class ReverseLinkedList {
-	public ListNode reverseList(ListNode head) {
+    public ListNode reverseList(ListNode head) {
         if(head == null) return null;
-        ListNode recent = null;
-        ListNode cur = head;
-        while(cur != null){
-            ListNode next= cur.next;
-            cur.next = recent;
-            recent = cur;
-            cur = next;
+        ListNode prev = null;
+        while(head != null){
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
         }
-        return recent;
+        return prev;
     }
 }

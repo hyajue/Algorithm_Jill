@@ -47,7 +47,7 @@ public class Solution {
         nums[j] = temp;
     }
 }
-//2 pass. Counting sort
+//2 pass. Counting sort 
 public class SortColors {
 	public void sortColors(int[] nums) {
         if(nums == null || nums.length == 0) return;

@@ -48,4 +48,30 @@ public class RotateImage {
 }
 
 /*Solution 2:
- * 
+没有那么多子method
+ */
+public class Solution {
+    public void rotate(int[][] matrix) {
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0)
+            return;
+        int n = matrix.length;
+        
+        //transpose
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < i; j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+        
+        //flip
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n / 2; j++){
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n-j-1];
+                matrix[i][n-j-1] = temp;
+            }
+        }
+    }
+}

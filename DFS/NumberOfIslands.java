@@ -23,6 +23,7 @@ package DFS;
 模型：迷宫问题 典型递归求解
 每遇到'1'后, 把当前位置设为visited, 然后向四个方向递归搜索. 
 */
+//也可以遇到'1'以后，将它设为'0'，防止再次访问。 这样可以节省一个二维visited空间
 public class NumberOfIslands {
 	public int numIslands(char[][] grid) {
         if(grid == null || grid.length == 0 || grid[0].length == 0)

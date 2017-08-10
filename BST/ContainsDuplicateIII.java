@@ -38,7 +38,6 @@ public class ContainsDuplicateIII {
 /*思路：滑动窗口+ bucket sort
 Time: O(n), Space: O(n)
 
-
 想法是，因为两元素最多不能相差超过t,所以设置t+1个桶来存放数据。
 如果： | nums[i] - nums[j] | <= t   式a
 等价： | nums[i] / t - nums[j] / t | <= 1   式b
