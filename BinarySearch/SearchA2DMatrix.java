@@ -38,10 +38,10 @@ public class SearchA2DMatrix {
             else
                 up = mid + 1;
         }
-        //sanity check, make sure that the target it not < matrix[0][0]
+        //sanity check, make sure that the target is not < matrix[0][0]
         row = down;
-        if(row < 0)
-            return false;
+        if(row < 0) return false;
+		
         int left = 0, right = col - 1;
         while(left <= right){
             int mid = (right - left) / 2 + left;
