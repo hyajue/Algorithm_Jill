@@ -86,7 +86,7 @@ public class RearrangeStringKDistanceApart {
 			
 		//construct a max heap, which holds	all map entries, and frequency as desc
 		Queue<Map.Entry<Character, Integer>> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b.getValue(), a.getValue()));
-		maxHeap.addAll(maxHeap);
+		maxHeap.addAll(map);
 		//wait queue
 		Queue<Map.Entry<Character, Integer>> wait = new LinkedList<Map.Entry<Character, Integer>>();
 		
