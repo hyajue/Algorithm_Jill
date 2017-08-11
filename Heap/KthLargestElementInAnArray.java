@@ -41,6 +41,7 @@ public class Solution {
             if(nums[i] <= pivot) // Put numbers < pivot to pivot's left
                 swap(ptr++, i, nums);
         }
+	//pviot在ptr位置，且它是第ptr个小的数
         swap(ptr, r, nums); // Finally, swap A[end] with A[left]
         
         if(ptr == k) return nums[ptr];
@@ -60,6 +61,8 @@ public class Solution {
 时间：O(nlogK) 空间：O(K)
 思路:heap
 维护一个最小堆,堆中的元素大约k时,就出堆.当所有元素都过一遍堆时,堆顶元素即为第K大元素
+
+asc排序的话，每次poll出的都是最小的数字。故这样可保证堆里有k个最大的数。最后poll出来的就是第k大的
 */
 public class KthLargestElementInAnArray {
 	public int findKthLargest(int[] nums, int k) {
