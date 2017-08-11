@@ -22,6 +22,9 @@ package StackandQueue;
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+// PostOrder: 左， 右， 根
+
 /*
 解法2
 复杂度
