@@ -52,8 +52,8 @@ public class LFUCache {
         return -1;
     }
     
-    public void set(int key, int value) {
-        if ( cap == 0 ) return;
+    public void put(int key, int value) {
+        if (cap == 0) return;
         if (valueHash.containsKey(key)) {
             valueHash.put(key, value);
         } else {
