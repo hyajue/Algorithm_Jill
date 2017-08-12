@@ -13,6 +13,9 @@ package LinkedList;
 1. 找链表中点
 2. 从中点之后翻转列表
 3. 双指针一个指向头,另一个指向中点下一个,顺序对比.如果都一样,则原链表是回文列表
+
+Note: 为什么要翻转后半段而不是前半段呢？ 这里涉及到一个one pass问题。
+对于奇数的情况 比如 1-2-3-2-1  比较 1-2-3 和 1-2 比较好。 否则的话要额外增加很多步骤比较 3-2-1 和 2-1  
 */
 public class PalindromeLinkedList {
 	public boolean isPalindrome(ListNode head) {
