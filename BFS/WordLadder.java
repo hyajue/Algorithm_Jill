@@ -53,6 +53,7 @@ public class WordLadder {
             for(int k=0; k<curSize; k++){
                 String cur = queue.poll();
                 for(int i = 0; i < cur.length(); i++){
+		//每个要被改变的位置i，都重新生成一次char array
                     char[] curArr = cur.toCharArray();
                     for(char c = 'a'; c <= 'z'; c++){
                         curArr[i] = c;
