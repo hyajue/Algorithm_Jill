@@ -19,6 +19,8 @@ package HashTable;
 思路：排序+哈希表
 将排序后的单个单词作为key，映射到哈希表中。如果有相应的key存在，则说明之前出现过它的anagrams,把当前词插入存在记录的列表中
 如果没有相应的key存在，则创建一条新纪录， 把当前词插进去
+
+char[] cs       String s = new String(cs);
 */
 public class GroupAnagrams {
 	public List<List<String>> groupAnagrams(String[] strs) {
@@ -28,8 +30,8 @@ public class GroupAnagrams {
         
         for(String s : strs){
             char[] cS = s.toCharArray();
-            Arrays.sort(cS);
-            String str = new String(cS);
+            Arrays.sort(cS);	
+            String str = new String(cS);// char[]如何转成string！！！！
             if(!map.containsKey(str))
                 map.put(str, new ArrayList<String>());
             map.get(str).add(s);
