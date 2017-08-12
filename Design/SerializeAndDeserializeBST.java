@@ -19,8 +19,12 @@ package Design;
  */
 //@Method2: using stack
 /*这种解法里，子树为空的支不加入String. 
- * 在Deserialize的时候维护一个当前循环的变量。维护一个parentNode。使得当前循环node永远在parentNode的左子树。
- * 
+ 在Deserialize的时候维护一个当前循环的变量iteratorNode。维护一个parentNode。使得当前循环node永远在parentNode的左子树。
+ 按照顺序依次读取数据，如果该点val比iteratoNode的值小，则他是iteratorNode的左子树，压栈iteratorNode，并更新iteratorNode。
+ 如果改点val比iteratorNode大，那么看stack是否为空：
+   stack不为空：弹出栈顶，parentNode，跟val比较。如果parent的值更大，那么这点就是iteratorNode的右孩子。 如果比parent的值还大，那么更新iteratorNode，继续弹出parentNode。
+   Stack为空：该点是iteratorNode的右孩子。
+ 更新iteratorNode。
  */
 public class Codec {
 
@@ -74,7 +78,12 @@ public class Codec {
 }
 
 
-//@Method1: recursion
+/*@Method1: recursion
+时间：O(n) 空间：O(n)
+
+方法同 BinaryTree一样。缺点是多了结尾符 "null"
+选择先序遍历,维护一个队列,反序列化时,先将各节点加入队列中, 然后在按照先序遍历的顺序构造BST
+*/
 public class SerializeAndDeserializeBST {
 	// Encodes a tree to a single string.
     public String serialize(TreeNode root) {
@@ -99,6 +108,7 @@ public class SerializeAndDeserializeBST {
         if(queue == null || queue.size() == 0)
             return null;
         String cur = queue.poll();
+	//!!!! String comparison
         if(cur.equals("null")) return null;
         TreeNode root = new TreeNode(Integer.parseInt(cur));
         root.left = helper(queue);
