@@ -3,7 +3,7 @@ package LinkedList;
 Merge k sorted linked lists and return it as one sorted list. 
 Analyze and describe its complexity.
 */
-//Method 1: PriorityQueue Olog(nlogn)
+//Method 1: PriorityQueue O(nlogn)
 public ListNode mergeKLists(List<ListNode> lists) { // running time O(nlogn)
     if(lists==null || lists.size()==0) return null;
     PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.size(), new Comparator<ListNode>(){
@@ -28,7 +28,7 @@ public ListNode mergeKLists(List<ListNode> lists) { // running time O(nlogn)
     return dummy.next;
 }
 
-//@Method 2: Recursive.
+//@Method 2: Divide and Conquer + Recursive merge two.
 public class mergeKSortedLists {
 	public ListNode mergeKLists(ListNode[] lists) {
         if(lists==null || lists.length==0) return null;
