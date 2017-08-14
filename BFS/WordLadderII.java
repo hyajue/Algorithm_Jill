@@ -99,7 +99,7 @@ public class WordLadderII {
                 curArr[i] = c;
                 String next = new String(curArr);
                 //剪枝 新生成的词只有满足下面两个条件才继续深搜：
-				//1.该词在哈希表里面存在 2.该词跟上一个词距离为1
+		//1.该词在哈希表里面存在 2.该词跟上一个词距离为1
                 if(dist.containsKey(next) && dist.get(cur) - dist.get(next) == 1){
                     path.add(next);
                     getAllMinPath(res, path, beginWord, next, dist);
