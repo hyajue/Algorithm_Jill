@@ -28,7 +28,7 @@ public class MinimumSizeSubarraySum {
         
         while(start < nums.length && end < nums.length){
             while(end < nums.length && sum < s){
-                //跳出循环的时候，sum已经大于s了。end在第一个不满足循环条件的位置
+                //跳出循环的时候，sum已经大于s了。end在使sum>s的数的下一位
                 sum += nums[end++];
             }
             while(start <= end && sum >= s){
