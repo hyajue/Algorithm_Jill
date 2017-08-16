@@ -44,14 +44,17 @@ public class WordLadderII {
 	public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         List<List<String>> res = new ArrayList<List<String>>();
         if(wordList == null || wordList.size() == 0) return res;
+		
         Set<String> dict = new HashSet<String>();
         for(String word : wordList){
             dict.add(word);
         }
-        
+        //该词，以及对应的level
         Map<String, Integer> dist = new HashMap<String, Integer>();
         getDist(beginWord, endWord, dict, dist);
+		
         if(!dist.containsKey(endWord)) return res;
+	//为了加入endWord	
         List<String> path = new ArrayList<String>();
         path.add(endWord);
         getAllMinPath(res, path, beginWord, endWord, dist);
@@ -72,7 +75,7 @@ public class WordLadderII {
                     //剪枝
                     if(dict.contains(temp)){
                         //BFS结束
-                        if(temp == endWord){
+                        if(temp.equals(endWord)){
                             dist.put(endWord, dist.get(cur)+1);
                             return;
                         }
