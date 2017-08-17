@@ -45,6 +45,7 @@ public class BinaryTreeUpsideDown {
 			left.right = parent;
 			return newRoot;
 		}
+		//左右都为空。直接return root
 		return root;
 	}
 }
