@@ -17,18 +17,23 @@ public class PaintHouseII {
 	    // min2 is the index of the 2nd-smallest cost till previous house
 		int min1 = -1;
 		int min2 = -1;
+		//一遍循环，一次性解决
 		for(int i = 0; i < costs.length; i++) {
+			//last1, last2来记录上层循环的最小位置
 			int last1 = min1;
 			int last2 = min2;
+			//重置min1, min2
 			min1 = -1;
 			min2 = -1;
+			//一遍找到min1和min2，同时更新costs[i][...]
 			for(int j = 0; j < costs[0].length; j++) {
 				if(j == last1) {
 					costs[i][j] += last2 < 0 ? 0 : costs[i-1][last2]; 
-				}else{
+				}else{  //不存在last1的时候，即i=0的时候, costs[0][j]就是它自己
 					costs[i][j] += last1 < 0 ? 0 : costs[i-1][last1];
 				}
 				if(min1 < 0 || costs[i][j] < costs[i][min1]) {
+					//在有multiple按顺序的值的时候，做法是依次向后类推
 					min2 = min1;
 					min1 = j;
 				}else if(min2 < 0 || costs[i][j] < costs[i][min2]) {
