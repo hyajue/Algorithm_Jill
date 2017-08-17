@@ -27,6 +27,8 @@ hashmap记录单词位置，这样每次直接调用hashmap找单词，O(1)时�
 /*
 改进：
 使查询的复杂度由上面的O(MN)变为O(M+N)，其中M和N为两个单词的长度，我们需要两个指针i和j来指向位置数组中的某个位置，开始初始化都为0，然后比较位置数组中的数字，将较小的一个的指针向后移动一位，直至其中一个数组遍历完成即可
+In shortest( ) function, since list1 (size n) and list2 (size m) are sorted already, 
+we can use the idea of merge sort and perform the comparison in O(n + m) time, rather than O(n * m)
 */
 
 public class WordDistance {
