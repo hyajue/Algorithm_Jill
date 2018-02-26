@@ -19,12 +19,12 @@ public class RemoveLinkedListElements {
 	    dummy.next = head;
 	    head = dummy;
 	    while (head.next != null) {
-				if (head.next.val == val) {
-					head.next = head.next.next;
-				} else {
-					head = head.next;
-				}
+			if (head.next.val == val) {
+				head.next = head.next.next;
+			} else {
+				head = head.next;
 			}
+	    }
 	    return dummy.next;		
 	  }
 }
