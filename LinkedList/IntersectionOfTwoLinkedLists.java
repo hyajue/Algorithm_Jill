@@ -30,8 +30,12 @@ LenA + LenShare + LenB = LenB + LenShare + LenA
   lenA    LenShare
 <------>|<-------->
    <--->|<-------->
-	 LenB   LenShare 
+  LenB    LenShare 
 由于循环结束的条件为两指针相遇 故一定在交点处相遇 
+
+
+Or, if there's no intersection,  lenA + lenB = lenB + lenA
+Iteration ends when both ptrs point to null, and return null
 */ 
 public class IntersectionOfTwoLinkedLists {
 	public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
