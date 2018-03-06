@@ -47,3 +47,23 @@ public class BinaryTreeLevelOrderTraversal {
         return res;
     }
 }
+
+
+//Method: DFS
+
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(res, root, 0);
+        return res;
+    }
+    private void dfs(List<List<Integer>> res, TreeNode root, int level) {
+        if(root == null) return;
+        // why <= not =
+        if(res.size() <= level)
+            res.add(new ArrayList<Integer>());
+        res.get(level).add(root.val);
+        dfs(res, root.left, level + 1);
+        dfs(res, root.right, level + 1);
+    }
+}
