@@ -50,6 +50,7 @@ public class BinaryTreeLevelOrderTraversalII {
                 if(cur.right != null)
                     queue.offer(cur.right);
             }
+	    // you can insert something with an assigned position into the list
             res.add(0, subRes);
         }
         return res;
