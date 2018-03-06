@@ -59,8 +59,8 @@ class Solution {
     }
     private void dfs(List<List<Integer>> res, TreeNode root, int level) {
         if(root == null) return;
-        // why <= not =
-        if(res.size() <= level)
+        // why <= not ==
+        if(res.size() == level)
             res.add(new ArrayList<Integer>());
         res.get(level).add(root.val);
         dfs(res, root.left, level + 1);
