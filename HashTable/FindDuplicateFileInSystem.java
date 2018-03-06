@@ -35,6 +35,9 @@ What is the time complexity of your modified solution? What is the most time-con
 How to make sure the duplicated files you find are not false positive?
 */
 
+//Follow up:
+//https://leetcode.com/problems/find-duplicate-file-in-system/discuss/104120/Follow-up-questions-discussion
+
 /*
 复杂度
 时间O(n) 空间：O(n)
