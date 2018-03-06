@@ -25,6 +25,7 @@ package BFS;
 public class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
+        //Without this, it will throw nullpointer exception.
         if(root == null) return res;
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         queue.offer(root);
