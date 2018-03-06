@@ -63,7 +63,7 @@ public class WordLadder {
                             if(next.equals(endWord)){
                                 return level + 1;
                             }
-                            queue.offer(next);
+                            queue.offer(next); //!!!
                             isHave.add(next);
                         }
                     }
