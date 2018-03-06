@@ -38,7 +38,28 @@ public class AddTwoNumbersII {
             newHead.next = head;
             head = newHead;
             sum /= 10;
-        }
+        } 
+	//Save some extra space!!
         return head.val == 0 ? head.next : head;
     }
 }
+
+
+//
+ListNode head = new ListNode(-1);
+        int carry = 0;
+        while(!s1.isEmpty() || !s2.isEmpty() || carry != 0) {
+            int sum = 0;
+            if(!s1.isEmpty()) {
+                sum += s1.pop();
+            }
+            if(!s2.isEmpty()) {
+                sum += s2.pop();
+            }
+            head.val = (carry + sum) % 10;
+            carry = (carry + sum) / 10;
+            ListNode newHead = new ListNode(-1);
+            newHead.next = head;
+            head = newHead;
+        }
+        return head.next;
